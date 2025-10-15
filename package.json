@@ -1,0 +1,13 @@
+{
+  "name": "odin-project-hashmap",
+  "version": "1.0.0",
+  "main": "hashmap.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
