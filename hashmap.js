@@ -100,6 +100,50 @@ class HashMap {
         }
         return false;
     }
+    length(){
+        return this.size;
+    }
+    clear(){
+        this.buckets = new Array(this.capacity).fill(null);
+        this.size = 0;
+    }
+    keys(){
+        const keysArray = [];
+
+        for (const bucket of this.buckets) {
+            if (bucket) {
+                for (const [key] of bucket) {
+                    keysArray.push(key);
+                }
+            }
+        }
+        return keysArray;
+    }
+    values() {
+        const valuesArray = [];
+        
+        for (const bucket of this.buckets) {
+            if (bucket) {
+                for (const [, value] of bucket) {
+                    valuesArray.push(value);
+                }
+            }
+        }
+        return valuesArray;
+    }
+
+    entries() {
+        const entriesArray = [];
+
+        for (const bucket of this.buckets) {
+            if (bucket) {
+                for (const [key, value] of bucket) {
+                    entriesArray.push([key, value]);
+                }
+            }
+        }
+        return entriesArray;
+    }
 }
 
 const map = new HashMap();
@@ -114,3 +158,14 @@ console.log(map.has("carrot")); // → false
 map.remove("banana");
 console.log(map.has("banana")); // → false
 console.log(map.get("banana")); // → null
+console.log("Length:", map.length());
+
+map.set("carrot", "orange");
+map.set("dog", "brown");
+
+console.log("Keys:", map.keys());
+console.log("Values:", map.values());
+console.log("Entries:", map.entries());
+
+map.clear();
+console.log("After clear → Length:", map.length());
